@@ -24,10 +24,6 @@ In the paper, we removed text from the images then use BLIP-2 for captioning.
 
 Change the path of ```input``` and ```output``` folders to your path in ```config.yaml```.
 
-```bash
-  npm run deploy
-```
-
 #### Generating Topics and Evaluation
 Insert corresponding arguments in ```< >```
 
