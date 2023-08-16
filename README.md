@@ -14,7 +14,7 @@ pip install -r requirements.txt
 If run with LLaMA, download weights from [huggingface](https://huggingface.co/huggyllama/llama-13b)
 
 ## Usage
-#### Prepare Input
+### Prepare Input
 
 Prepare ```input``` folder. This contains subfolders of datasets you run the model on. Each dataset subfolder contains two json files below, each with key as image name and value as corresponding caption/text.
 -  ```captions.json``` 
@@ -24,7 +24,7 @@ In the paper, we removed text from the images then use BLIP-2 for captioning.
 
 Change the path of ```input``` and ```output``` folders to your path in ```config.yaml```.
 
-#### Generating Topics and Evaluation
+### Generating Topics and Evaluation
 Insert corresponding arguments in ```< >```
 
 ```bash
