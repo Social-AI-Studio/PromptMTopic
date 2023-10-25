@@ -49,3 +49,4 @@ The topic models have been evaluated on the following datasets:
 
  - Topic Metric: [Preferred.AI's Topic Metric](https://github.com/PreferredAI/topic-metrics/tree/main)
  - Captioning Module: [LAVIS's BLIP-2](https://github.com/salesforce/LAVIS/tree/main/projects/blip2)
+ - ctfidf: [BERTopic](https://github.com/MaartenGr/BERTopic/blob/62e97ddea6cdcf9e4da25f9eaed478b22a9f9e20/bertopic/vectorizers/_ctfidf.py#L4) 
