@@ -8,7 +8,8 @@ input_folder="./input"
 if __name__ == '__main__':
     parser=argparse.ArgumentParser()
     parser.add_argument('-model', help='chatGPT\llama',choices=['chatGPT','llama'],required=True,default='chatGPT',type=str)
-    parser.add_argument('-dataset', help='dataset to run topic modeling(TdefMemes\FB_hateful_memes\Memotion)',required=True,default="TDefMemes",type=str)
+    parser.add_argument('-dataset', help='dataset to run topic modeling(TdefMemes\FB_hateful_memes\Memotion)',\
+                        required=True,default="TDefMemes",type=str)
     parser.add_argument('-merging', help='merging technique(pbm\wsm)',required=False,default="False",type=str)
     parser.add_argument('-k_range', help='range of topk',required=False,default="10,20,30,40,50",type=str)
     args = parser.parse_args()

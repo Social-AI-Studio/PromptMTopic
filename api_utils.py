@@ -1,7 +1,8 @@
 import openai
 import time
 
-openai.api_key ="[insert open ai token here]"
+# openai.api_key ="[insert open ai token here]"
+openai.api_key ="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"
 
 def callChatAPI(content,msgs=None,temperature=1):
     if msgs is None:    

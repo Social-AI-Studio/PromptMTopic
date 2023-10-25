@@ -1,5 +1,5 @@
 import transformers
-from base_model import Base_Model
+from .base_model import Base_Model
 import torch
 import os
 import json
@@ -45,7 +45,7 @@ class Llama(Base_Model):
             covered={k:v for item in covered for k,v in ast.literal_eval(item).items()}
             covered=[file for file,_ in covered.items()]    
                  
-        print("calling chatGPT to extract topics from dataset")
+        print("running llama to extract topics from dataset")
         failed=self.call_llama(data,covered,output_path)       
         while(len(failed)!=0):
             failed=self.call_llama(failed,covered,output_path)

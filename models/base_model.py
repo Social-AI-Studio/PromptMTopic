@@ -1,8 +1,8 @@
 import os
-from ..utils import *
-from ..ctfidf import *
+from utils import *
+from ctfidf import *
 from sklearn.feature_extraction.text import CountVectorizer
-from ..WSM import *
+from WSM import *
 
 class Base_Model():
     def __init__(self) -> None:
@@ -19,7 +19,8 @@ class Base_Model():
             return [token.lower() for token in text.split() if token.lower() not in caption_stopwords]
         class_docs=[]
         for topic,docs in topic_docs.items():
-            documents =[[token for token in remove_stop_rords(file_captions[file]) if token not in stop_words]+[token for token in file_text[file].split()] for file in docs]
+            documents =[[token for token in remove_stop_rords(file_captions[file]) if token not in stop_words]+\
+                        [token for token in file_text[file].split()] for file in docs]
             documents=[" ".join([token for token in doc if token not in stop_words]) for doc in documents]
             class_docs.append(" ".join(documents))  
             
@@ -45,36 +46,40 @@ class Base_Model():
         topic_docs={topic:documents_preprocess(docs,lemmatize=False) for topic,docs in topic_docs.items()}
         
         _, word_similarity_matrix = calculate_word_similarity_matrix(topic_docs)
-        for k in k_range:
-            topic_docs=WSM_collapsing(topic_docs,k,word_similarity_matrix)        
-            with open(os.path.join(output_folder,dataset,"topics_grouped.txt"),"a+") as f:
-                json.dump({"k":k,"topic_rep":topic_docs},f,indent=4)
+        with open(os.path.join(output_folder,dataset,"topics_grouped.jsonl"),"w") as f:
+            for k in k_range:
+                topic_docs=WSM_collapsing(topic_docs,k,word_similarity_matrix)        
+                json.dump({"k":k,"topic_rep":topic_docs},f)
+                f.write("\n")
 
     def get_topic_rep(self,dataset,output_folder,top_words = 10):
-        with open(os.path.join(output_folder,dataset,"topics_grouped.txt"),"r") as f:
-            filter_temp_docs=json.load(f)
+        with open(os.path.join(output_folder,dataset,"topics_grouped.jsonl"),"r") as f:
+            filter_temp_docs=f.read().split("\n")
+         
+        filter_temp_docs=[json.loads(item) for item in filter_temp_docs if item!='']    
         tfidf_vectorizer = TfidfVectorizer()
-        tfidf = tfidf_vectorizer.fit_transform([" ".join(filter_temp_docs[key]) for key in filter_temp_docs.keys()]) 
-        tfidf_feature_names = tfidf_vectorizer.get_feature_names()
-        topic_rep = []
-        topic_rep_dic = {}
-
-        for i in range(len(filter_temp_docs.keys())):
-            key = list(filter_temp_docs.keys())[i]
-            first_document_vector=tfidf[i] 
-            feature_array = np.array(tfidf_feature_names)
-            tfidf_sorting = np.argsort(first_document_vector.toarray()).flatten()[::-1]
-            top_n = feature_array[tfidf_sorting]
-            answer = top_n[:top_words]            
-            topic_rep.append(answer)
-            topic_rep_dic[key] = list(answer)
-            
-        # return topic_rep, topic_rep_dic
-        with open(os.path.join(output_folder,dataset,"topic_rep.json"),"w", encoding='utf-8') as f:
-            json.dump(topic_rep_dic,f,indent=4)        
+        
+        for item in filter_temp_docs:
+            tfidf = tfidf_vectorizer.fit_transform([" ".join(item["topic_rep"][key]) for key in list(item["topic_rep"].keys())]) 
+            tfidf_feature_names = tfidf_vectorizer.get_feature_names()
+            topic_rep = []
+            topic_rep_dic = {}
+            for i in range(len(item["topic_rep"].keys())):
+                key = list(item["topic_rep"].keys())[i]
+                first_document_vector=tfidf[i] 
+                feature_array = np.array(tfidf_feature_names)
+                tfidf_sorting = np.argsort(first_document_vector.toarray()).flatten()[::-1]
+                top_n = feature_array[tfidf_sorting]
+                answer = top_n[:top_words]            
+                topic_rep.append(answer)
+                topic_rep_dic[key] = list(answer)
+                
+            # return topic_rep, topic_rep_dic
+            with open(os.path.join(output_folder,dataset,"topic_rep_{}.json".format(item["k"])),"w", encoding='utf-8') as f:
+                json.dump(topic_rep_dic,f,indent=4)        
     
-    def collapse(self,dataset,k,input_folder,output_folder):
-        self.group_topics(dataset,input_folder,output_folder,k)
+    def collapse(self,topic_docs,dataset,k,input_folder,output_folder):
+        self.group_topics(topic_docs,dataset,input_folder,output_folder,k)
 
     def get_rep(self,k,dataset,input_folder,output_folder):    
         self.get_topic_rep(dataset,output_folder)

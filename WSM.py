@@ -223,13 +223,13 @@ def WSM_collapsing(topics_documents, k, word_overlapping_matrix, topic_grouping 
     #         topic_grouping[topic] = ["emp"]
     
     while(a.shape[0] > k):
-        if(a.shape[0] %10 == 0):
-            print(a.shape)
+        # if(a.shape[0] %10 == 0):
+            # print(a.shape)
         max_idx = np.unravel_index(a.argmax(), a.shape)
         max_row, max_col = max_idx
         if(a[max_row][max_col] <= 0):
             print("No overlapping")
-            print(a.shape)
+            # print(a.shape)
         sum_row = sum(a[max_row])
         sum_col = sum(a[max_col])
         

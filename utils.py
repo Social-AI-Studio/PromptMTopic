@@ -56,7 +56,7 @@ def documents_preprocess(docs,lemmatize=True):
     filtered_docs = [" ".join(sent) for sent in filtered_docs]    
     return filtered_docs
 
-def calc_metrics(dataset,input_folder,output_folder,k):
+def calc_metrics(dataset,input_folder,output_folder,k_range):
     corpus_dir = os.path.join(input_folder,dataset, 'corpus')
     dest_dir="{}/{}".format(output_folder,dataset)
     os.makedirs(corpus_dir, exist_ok=True)
@@ -90,21 +90,22 @@ def calc_metrics(dataset,input_folder,output_folder,k):
     for k1, s in npmi_graph.items():
         pickle.dump(dict(s), open(os.path.join(dest_npmi,f"{k1}.pkl"), "wb"))
     
-    with open("{}/{}/topic_rep.json".format(output_folder,dataset),"r") as f:
-        topics=json.load(f)
-    topics=[words for _,words in topics.items()]    
-    scores = calculate_scores_from_counts([[vocab_index[w] for w in t] for t in topics], 
-                    "{}/{}/histogram.csv".format(output_folder,dataset),
-                    "{}/{}/10/single.pkl".format(output_folder,dataset),
-                    "{}/{}/10/joint".format(output_folder,dataset), 
-                    score_func = npmi, window_size = 10, agg_func = direct_avg,
-                    smooth=True, min_freq=0, num_processes=10)
+    for k in k_range:
+        with open("{}/{}/topic_rep_{}.json".format(output_folder,dataset,k),"r") as f:
+            topics=json.load(f)
+        topics=[words for _,words in topics.items()]    
+        scores = calculate_scores_from_counts([[vocab_index[w] for w in t] for t in topics], 
+                        "{}/{}/histogram.csv".format(output_folder,dataset),
+                        "{}/{}/10/single.pkl".format(output_folder,dataset),
+                        "{}/{}/10/joint".format(output_folder,dataset), 
+                        score_func = npmi, window_size = 10, agg_func = direct_avg,
+                        smooth=True, min_freq=0, num_processes=10)
 
-    metric=0
-    for topic, score in zip(topics, scores):
-        metric+=score
-    print("dataset:{} k:{} npmi: {}".format(dataset,k,metric/k))    
+        metric=0
+        for topic, score in zip(topics, scores):
+            metric+=score
+        print("dataset:{} k:{} npmi: {}".format(dataset,k,metric/k))    
 
-    topic_tokens={'topics':topics}   
-    diversity = TopicDiversity(topk=10).score(topic_tokens) 
-    print("dataset:{} k:{} diversity: {}".format(dataset,k,diversity))
+        topic_tokens={'topics':topics}   
+        diversity = TopicDiversity(topk=10).score(topic_tokens) 
+        print("dataset:{} k:{} diversity: {}".format(dataset,k,diversity))

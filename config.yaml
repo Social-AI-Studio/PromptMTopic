@@ -6,118 +6,121 @@ input_folder: "./input"
 memotion_discard_files: ["image_120.jpg","image_6785.jpg","image_6787.jpg","image_4800.jpg","image_6782.jpg"]
 
 chatGPT:
-  collect_examples: [            
-        {
-          "role": "system", "content": "You are designated as an assistant that identify and extract high-level topics from memes. You should avoid giving specific details and provide unique topics solely."
-        },
-        {
-          "role": "user", "content": """Please list the high-level topics in the following meme using its image caption and superimposed text.
-          Meme's Image Caption: a llama in the woods with a caption that says \"this is my llama\" in the photo 
-          Meme's Superimposed Text: VOLUNTARY TOP UP MY CPF SPECIAL ACCOUNT??
-          Topics:"""
-        },
-        {
-          "role": "assistant", "content": """['Animal', 'Personal Finance']"""
-        },
-        {
-          "role": "user", "content": """Please list the high-level topics in the following meme using its image caption and superimposed text.
-          Meme's Image Caption:  a man is sitting at a table with a laptop and a sign that says \"i am not in the virus 
-          Meme's Superimposed Text: Stabilisation Phase extended to Nov 21; more time needed to stabilise COVID-19 situation: MOH \"Even as the public hospitals continue to set aside more beds for COVID-19 patients, we have observed longer admission waiting time for these patients,\" MOH said.
-          Topics:"""
-        },
-        {
-          "role": "assistant", "content": """['Covid-19']"""
-        },
-        {
-          "role": "user", "content": """Please list the high-level topics in the following meme using its image caption and superimposed text.
-          Meme's Image Caption:  a man in a car with the caption, when you're in the car and you see in the car 
-          Meme's Superimposed Text: recruit: why tf gotta wear my id tag and bring my FAD everywhere? BMT spec: IT'S THE LAW.
-          Topics:"""
-        },
-        {
-          "role": "assistant", "content": """['Military']"""
-        },
-        {
-          "role": "user", "content": """Please list the high-level topics in the following meme using its image caption and superimposed text.
-          Meme's Image Caption:  an asian man wearing glasses and a red tie in a microphone 
-          Meme's Superimposed Text: IF TAN CHENG BOCK WAS MALAY THE PAP GOV WOULD'VE RESERVED THE PRESIDENTIAL ELECTION FOR INDIANS OR EURASIANS.
-          Topics:"""
-        },
-        {
-          "role": "assistant", "content": """['Racism','Politics']"""
-        },
-        {
-          "role": "user", "content": """Please list the high-level topics in the following meme using its image caption and superimposed text.
-          Meme's Image Caption:  a collage of images showing people on a bus in the video 
-          Meme's Superimposed Text: TAKE MRT SCARED AUNTY SCREAM AT YOU TAKE BUS SCARED SOMEONE PUSH YOU OFF TAKE TAKI SCARED FERRARI RAM YOU TAKE BICYCLE SCARED KENNA LANGAH BY VAN.
-          Topics:"""
-        },
-        {
-          "role": "assistant", "content": """['Transportation']"""
-        },
-        {
-          "role": "user", "content": """Please list the high-level topics in the following meme using its image caption and superimposed text.
-          Meme's Image Caption:  a white container with food in it and a light bulb in the camera 
-          Meme's Superimposed Text: Families living in four-room HDB flats can expect their average monthly bill to go down by S$3.89. Electricity tariff to fall 5.1% from April to June $3.89 SAVINGS? BARELY ENOUGHFOR CAI PNG.
-          Topics:"""
-        },
-        {
-          "role": "assistant", "content": """['Cost of Living','Housing']"""
-        },
-        {
-          "role": "user", "content": """Please list the high-level topics in the following meme using its image caption and superimposed text.
-          Meme's Image Caption:  a man is standing in front of a display of yellow ducks in a restaurant 
-          Meme's Superimposed Text: Chicken rice stalls in Singapore on 1st June be looking like.
-          Topics:"""
-        },
-        {
-          "role": "assistant", "content": """['Food']"""
-        },
-        {
-          "role": "user", "content": """Please list the high-level topics in the following meme using its image caption and superimposed text.
-          Meme's Image Caption:  a young man in uniform standing in front of a building in the airport 
-          Meme's Superimposed Text: POLICE GOT SHOT AT AIRPORT BY A CAMERA.
-          Topics:"""
-        },
-        {
-          "role": "assistant", "content": """['Police']"""
-        },
-        {
-          "role": "user", "content": """Please list the high-level topics in the following meme using its image caption and superimposed text.
-          Meme's Image Caption:  two pictures of a man driving car and in suit 
-          Meme's Superimposed Text: WHAT YOU THINK YOU LOOK LIKE BEHIND THE WHEEL WHAT YOU ACTUALLY LOOK LIKE BEHIND THE WHEEL
-          Topics:"""
-        },
-        {
-          "role": "assistant", "content": """['Humor']"""
-        },
-        {
-          "role": "user", "content": """Please list the high-level topics in the following meme using its image caption and superimposed text.
-          Meme's Image Caption:  a woman is talking to man in front of crowd 
-          Meme's Superimposed Text: GET OUT OF HERE WITH YOUR SCIENCE GENDER IS A SOCIAL CONSTRUCT
-          Topics:"""
-        },
-        {
-          "role": "assistant", "content": """['Anti Femenism']"""
-        }
+  collect_examples: >
+    [            
+      {
+        "role": "system", "content": "You are designated as an assistant that identify and extract high-level topics from memes. You should avoid giving specific details and provide unique topics solely."
+      },
+      {
+        "role": "user", "content": """Please list the high-level topics in the following meme using its image caption and superimposed text.
+        Meme's Image Caption: a llama in the woods with a caption that says \"this is my llama\" in the photo 
+        Meme's Superimposed Text: VOLUNTARY TOP UP MY CPF SPECIAL ACCOUNT??
+        Topics:"""
+      },
+      {
+        "role": "assistant", "content": """['Animal', 'Personal Finance']"""
+      },
+      {
+        "role": "user", "content": """Please list the high-level topics in the following meme using its image caption and superimposed text.
+        Meme's Image Caption:  a man is sitting at a table with a laptop and a sign that says \"i am not in the virus 
+        Meme's Superimposed Text: Stabilisation Phase extended to Nov 21; more time needed to stabilise COVID-19 situation: MOH \"Even as the public hospitals continue to set aside more beds for COVID-19 patients, we have observed longer admission waiting time for these patients,\" MOH said.
+        Topics:"""
+      },
+      {
+        "role": "assistant", "content": """['Covid-19']"""
+      },
+      {
+        "role": "user", "content": """Please list the high-level topics in the following meme using its image caption and superimposed text.
+        Meme's Image Caption:  a man in a car with the caption, when you're in the car and you see in the car 
+        Meme's Superimposed Text: recruit: why tf gotta wear my id tag and bring my FAD everywhere? BMT spec: IT'S THE LAW.
+        Topics:"""
+      },
+      {
+        "role": "assistant", "content": """['Military']"""
+      },
+      {
+        "role": "user", "content": """Please list the high-level topics in the following meme using its image caption and superimposed text.
+        Meme's Image Caption:  an asian man wearing glasses and a red tie in a microphone 
+        Meme's Superimposed Text: IF TAN CHENG BOCK WAS MALAY THE PAP GOV WOULD'VE RESERVED THE PRESIDENTIAL ELECTION FOR INDIANS OR EURASIANS.
+        Topics:"""
+      },
+      {
+        "role": "assistant", "content": """['Racism','Politics']"""
+      },
+      {
+        "role": "user", "content": """Please list the high-level topics in the following meme using its image caption and superimposed text.
+        Meme's Image Caption:  a collage of images showing people on a bus in the video 
+        Meme's Superimposed Text: TAKE MRT SCARED AUNTY SCREAM AT YOU TAKE BUS SCARED SOMEONE PUSH YOU OFF TAKE TAKI SCARED FERRARI RAM YOU TAKE BICYCLE SCARED KENNA LANGAH BY VAN.
+        Topics:"""
+      },
+      {
+        "role": "assistant", "content": """['Transportation']"""
+      },
+      {
+        "role": "user", "content": """Please list the high-level topics in the following meme using its image caption and superimposed text.
+        Meme's Image Caption:  a white container with food in it and a light bulb in the camera 
+        Meme's Superimposed Text: Families living in four-room HDB flats can expect their average monthly bill to go down by S$3.89. Electricity tariff to fall 5.1% from April to June $3.89 SAVINGS? BARELY ENOUGHFOR CAI PNG.
+        Topics:"""
+      },
+      {
+        "role": "assistant", "content": """['Cost of Living','Housing']"""
+      },
+      {
+        "role": "user", "content": """Please list the high-level topics in the following meme using its image caption and superimposed text.
+        Meme's Image Caption:  a man is standing in front of a display of yellow ducks in a restaurant 
+        Meme's Superimposed Text: Chicken rice stalls in Singapore on 1st June be looking like.
+        Topics:"""
+      },
+      {
+        "role": "assistant", "content": """['Food']"""
+      },
+      {
+        "role": "user", "content": """Please list the high-level topics in the following meme using its image caption and superimposed text.
+        Meme's Image Caption:  a young man in uniform standing in front of a building in the airport 
+        Meme's Superimposed Text: POLICE GOT SHOT AT AIRPORT BY A CAMERA.
+        Topics:"""
+      },
+      {
+        "role": "assistant", "content": """['Police']"""
+      },
+      {
+        "role": "user", "content": """Please list the high-level topics in the following meme using its image caption and superimposed text.
+        Meme's Image Caption:  two pictures of a man driving car and in suit 
+        Meme's Superimposed Text: WHAT YOU THINK YOU LOOK LIKE BEHIND THE WHEEL WHAT YOU ACTUALLY LOOK LIKE BEHIND THE WHEEL
+        Topics:"""
+      },
+      {
+        "role": "assistant", "content": """['Humor']"""
+      },
+      {
+        "role": "user", "content": """Please list the high-level topics in the following meme using its image caption and superimposed text.
+        Meme's Image Caption:  a woman is talking to man in front of crowd 
+        Meme's Superimposed Text: GET OUT OF HERE WITH YOUR SCIENCE GENDER IS A SOCIAL CONSTRUCT
+        Topics:"""
+      },
+      {
+        "role": "assistant", "content": """['Anti Femenism']"""
+      }
     ]
 
-  group_examples: [
-        {"role": "system", "content": """You are designated as an AI assistant that determine the most appropriate overarching
-          topic from a given list of topics that best corresponds to a current topic. Specifically, you are required to identify
-          the most fitting topic from the provided list that is associated with the given topic, without providing any topics that are not included in the given list of topics."""
-        },
-        {
-          "role": "user", "content": """Topics:\n1. Military\n2. Housing\n3. Education\n4.Technology\n5.Entertainment\n6.Healthcare.
-          \n\nCurrent topic : War 
-	        \n\nWhat is the most suitable topic from the given topics that corresponds to the current topic?""" 
-        },
-        {
-          "role": "assistant", "content": """Military"""
-        }
+  group_examples: >
+    [
+      {"role": "system", "content": """You are designated as an AI assistant that determine the most appropriate overarching
+        topic from a given list of topics that best corresponds to a current topic. Specifically, you are required to identify
+        the most fitting topic from the provided list that is associated with the given topic, without providing any topics that are not included in the given list of topics."""
+      },
+      {
+        "role": "user", "content": """Topics:\n1. Military\n2. Housing\n3. Education\n4.Technology\n5.Entertainment\n6.Healthcare.
+        \n\nCurrent topic : War 
+        \n\nWhat is the most suitable topic from the given topics that corresponds to the current topic?"""
+      },
+      {
+        "role": "assistant", "content": """Military"""
+      }
     ]
 
-  word_order_examples: [            
+  word_order_examples: > 
+    [            
         {
           "role": "system", "content": """You are designated as an AI assistant that given a list of words and a topic,
             determines the top 10 words related to the topic,without providing any words that are not included in the above list of words."""
@@ -142,50 +145,57 @@ chatGPT:
         }
     ]  
 
-  collect_template: """Please list the high-level topics in the following meme using its image caption and superimposed text.
-      Meme's Image Caption: {caption}
-      Meme's Superimposed Text: {text}
-      Topics: """
+  collect_template: >
+    """Please list the high-level topics in the following meme using its image caption and superimposed text.
+    Meme's Image Caption: {caption}
+    Meme's Superimposed Text: {text}
+    Topics: """
 
-  group_template: """Topics: {topics}
-      Current topic : {topic}
-      What is the most suitable topic from the given topics that corresponds to the current topic?"""
+  group_template: >
+    """Topics: {topics}
+    Current topic : {topic}
+    What is the most suitable topic from the given topics that corresponds to the current topic?"""
 
-  word_order_template: """Topic : {topic}
-      \n\nWords : {words}
-      \n\nGiven the above topic,list the top 10 words related to the topic."""        
+  word_order_template: >
+    """Topic : {topic}
+    \n\nWords : {words}
+    \n\nGiven the above topic,list the top 10 words related to the topic."""        
 
 llama:
-  collect_examples: """A meme image shows: a llama in the woods with a caption that says \"this is my llama\" in the photo and superimposed text: VOLUNTARY TOP UP MY CPF SPECIAL ACCOUNT?? \
-          The topics in this meme are: 'Animal', 'Personal Finance'\
-          A meme image shows:  a man is sitting at a table with a laptop and a sign that says \"i am not in the virus and superimposed text: Stabilisation Phase extended to Nov 21; more time needed to stabilise COVID-19 situation: MOH \"Even as the public hospitals continue to set aside more beds for COVID-19 patients, we have observed longer admission waiting time for these patients,\" MOH said. \
-          The topics in this meme are: 'Covid-19'\
-          A meme image shows:  a man in a car with the caption, when you're in the car and you see in the car and superimposed text: recruit: why tf gotta wear my id tag and bring my FAD everywhere? BMT spec: IT'S THE LAW.\
-          The topics in this meme are: 'Military'\
-          A meme image shows: an asian man wearing glasses and a red tie in a microphone and superimposed text: IF TAN CHENG BOCK WAS MALAY THE PAP GOV WOULD'VE RESERVED THE PRESIDENTIAL ELECTION FOR INDIANS OR EURASIANS.\
-          The topics in this meme are: 'Racism','Politics'\
-          A meme image shows: a collage of images showing people on a bus in the video and superimposed text: TAKE MRT SCARED AUNTY SCREAM AT YOU TAKE BUS SCARED SOMEONE PUSH YOU OFF TAKE TAKI SCARED FERRARI RAM YOU TAKE BICYCLE SCARED KENNA LANGAH BY VAN.\
-          The topics in this meme are: 'Transportation'\
-          A meme image shows: a white container with food in it and a light bulb in the camera and superimposed text: Families living in four-room HDB flats can expect their average monthly bill to go down by S$3.89. Electricity tariff to fall 5.1% from April to June $3.89 SAVINGS? BARELY ENOUGHFOR CAI PNG.\
-          The topics in this meme are: 'Cost of Living','Housing'\
-          A meme image shows: a white container with food in it and a light bulb in the camera and superimposed text: Families living in four-room HDB flats can expect their average monthly bill to go down by S$3.89. Electricity tariff to fall 5.1% from April to June $3.89 SAVINGS? BARELY ENOUGHFOR CAI PNG.\
-          The topics in this meme are: 'Cost of Living','Housing'\
-          A meme image shows:  a man is standing in front of a display of yellow ducks in a restaurant and superimposed text: Chicken rice stalls in Singapore on 1st June be looking like.\
-          The topics in this meme are: 'Food' """
+  collect_examples: >
+    """A meme image shows: a llama in the woods with a caption that says \"this is my llama\" in the photo and superimposed text: VOLUNTARY TOP UP MY CPF SPECIAL ACCOUNT?? \
+    The topics in this meme are: 'Animal', 'Personal Finance'\
+    A meme image shows:  a man is sitting at a table with a laptop and a sign that says \"i am not in the virus and superimposed text: Stabilisation Phase extended to Nov 21; more time needed to stabilise COVID-19 situation: MOH \"Even as the public hospitals continue to set aside more beds for COVID-19 patients, we have observed longer admission waiting time for these patients,\" MOH said. \
+    The topics in this meme are: 'Covid-19'\
+    A meme image shows:  a man in a car with the caption, when you're in the car and you see in the car and superimposed text: recruit: why tf gotta wear my id tag and bring my FAD everywhere? BMT spec: IT'S THE LAW.\
+    The topics in this meme are: 'Military'\
+    A meme image shows: an asian man wearing glasses and a red tie in a microphone and superimposed text: IF TAN CHENG BOCK WAS MALAY THE PAP GOV WOULD'VE RESERVED THE PRESIDENTIAL ELECTION FOR INDIANS OR EURASIANS.\
+    The topics in this meme are: 'Racism','Politics'\
+    A meme image shows: a collage of images showing people on a bus in the video and superimposed text: TAKE MRT SCARED AUNTY SCREAM AT YOU TAKE BUS SCARED SOMEONE PUSH YOU OFF TAKE TAKI SCARED FERRARI RAM YOU TAKE BICYCLE SCARED KENNA LANGAH BY VAN.\
+    The topics in this meme are: 'Transportation'\
+    A meme image shows: a white container with food in it and a light bulb in the camera and superimposed text: Families living in four-room HDB flats can expect their average monthly bill to go down by S$3.89. Electricity tariff to fall 5.1% from April to June $3.89 SAVINGS? BARELY ENOUGHFOR CAI PNG.\
+    The topics in this meme are: 'Cost of Living','Housing'\
+    A meme image shows: a white container with food in it and a light bulb in the camera and superimposed text: Families living in four-room HDB flats can expect their average monthly bill to go down by S$3.89. Electricity tariff to fall 5.1% from April to June $3.89 SAVINGS? BARELY ENOUGHFOR CAI PNG.\
+    The topics in this meme are: 'Cost of Living','Housing'\
+    A meme image shows:  a man is standing in front of a display of yellow ducks in a restaurant and superimposed text: Chicken rice stalls in Singapore on 1st June be looking like.\
+    The topics in this meme are: 'Food' """
 
-  group_examples: """Given Topics:1. Military 2. Housing 3. Education 4.Technology 5.Entertainment 6.Healthcare\
-          and current topic : War , the most suitable topic from the given topics that corresponds to the current topic is Military"""
+  group_examples: >
+    """Given Topics:1. Military 2. Housing 3. Education 4.Technology 5.Entertainment 6.Healthcare\
+    and current topic : War , the most suitable topic from the given topics that corresponds to the current topic is Military"""
 
-  word_order_examples: """For the topic : 'technology' and words : 1. singapore 2. tracetogether 3. computer 4. robot 5. google 6. cell  7.internet 8. airpods 9. electricity 10.video 11. ball \
-           12. tiktok 13. singapore 14. ns 15. iphone 16. officer 16. message \
-          the top 10 words are : 'computer','robot','google','iphone','airpods','internet','tracetogether','video','tiktok','message' \
-          For the topic : 'politics' and words: 1. police 2. says 3. pm 4. chinese 5.pap 6. lee 7.government 8. people 9. man 10. minister 11. force 12. swee \
-          13. heng 14. scdf 15. malay 16. prime 17. spf 18. president 19. keat 20. stop 21. wp 22.elections 23. gst 24. raeesah 25. govt 26. ns 27. malay \
-          the top 10 words related to the topic are: 'government','govt', 'pm', 'minister', 'pap', 'lee', 'president', 'keat', 'heng','wp' """        
+  word_order_examples: >
+    """For the topic : 'technology' and words : 1. singapore 2. tracetogether 3. computer 4. robot 5. google 6. cell  7.internet 8. airpods 9. electricity 10.video 11. ball \
+    12. tiktok 13. singapore 14. ns 15. iphone 16. officer 16. message \
+    the top 10 words are : 'computer','robot','google','iphone','airpods','internet','tracetogether','video','tiktok','message' \
+    For the topic : 'politics' and words: 1. police 2. says 3. pm 4. chinese 5.pap 6. lee 7.government 8. people 9. man 10. minister 11. force 12. swee \
+    13. heng 14. scdf 15. malay 16. prime 17. spf 18. president 19. keat 20. stop 21. wp 22.elections 23. gst 24. raeesah 25. govt 26. ns 27. malay \
+    the top 10 words related to the topic are: 'government','govt', 'pm', 'minister', 'pap', 'lee', 'president', 'keat', 'heng','wp' """        
 
-  collect_template: """A meme image shows: {caption} and has a superimposed text: {text}\
-          The topics in this meme are: """  
+  collect_template: >
+    """A meme image shows: {caption} and has a superimposed text: {text}\
+    The topics in this meme are: """  
 
-  group_template: """Given Topics:{topics} and current topic : {topic}, the most suitable topic from the given topics that corresponds to the current topic is"""   
+  group_template: "Given Topics:{topics} and current topic : {topic}, the most suitable topic from the given topics that corresponds to the current topic is"   
 
-  word_order_template: """For the topic : {topic} and words : {words} the top 10 words related to the topic are"""                     
+  word_order_template: "For the topic : {topic} and words : {words} the top 10 words related to the topic are"                    
