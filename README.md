@@ -21,6 +21,7 @@ Prepare ```input``` folder. This contains subfolders of datasets you run the mod
 - ```text.json```
 - 
 Concatenate captions and OCR text in a single line for each sample and save in a 'corpus' directory inside input folder for each dataset used. This is required by the evaluation library.
+
 In the paper, we removed text from the images then use BLIP-2 for captioning.
 
 Change the path of ```input``` and ```output``` folders to your path in ```config.yaml```.
