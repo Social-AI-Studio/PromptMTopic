@@ -19,6 +19,7 @@ If run with LLaMA, download weights from [huggingface](https://huggingface.co/hu
 Prepare ```input``` folder. This contains subfolders of datasets you run the model on. Each dataset subfolder contains two json files below, each with key as image name and value as corresponding caption/text.
 -  ```captions.json``` 
 - ```text.json```
+- 
 Concatenate captions and OCR text in a single line for each sample and save in a 'corpus' directory inside input folder for each dataset used. This is required by the evaluation library.
 In the paper, we removed text from the images then use BLIP-2 for captioning.
 
